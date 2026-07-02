@@ -6,6 +6,8 @@ An AI-powered crop yield prediction system for Uttar Pradesh farmers built with 
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![React](https://img.shields.io/badge/react-19-61DAFB)
 
+---
+
 ## ✨ Features
 
 - 🌡️ **Live Weather Data** — Real-time weather fetch via OpenWeatherMap API
@@ -15,6 +17,8 @@ An AI-powered crop yield prediction system for Uttar Pradesh farmers built with 
 - 🇮🇳 **Bilingual Support** — Hindi & English toggle
 - ⚠️ **Risk Alerts** — Flood & drought detection
 
+---
+
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
@@ -22,27 +26,35 @@ An AI-powered crop yield prediction system for Uttar Pradesh farmers built with 
 | Frontend | React (Vite) + Tailwind CSS |
 | Backend | FastAPI (Python) |
 | ML Model | Random Forest (scikit-learn) |
-| AI Advice | Google Gemini API |
-| Weather | OpenWeatherMap API |
+| AI Advice | Google Gemini API (Free Tier) |
+| Weather | OpenWeatherMap API (Free Tier) |
+
+---
 
 ## 📁 Project Structure
 
-crop-yield-app/
-├── backend/
-│   ├── main.py          # FastAPI app
-│   ├── gemini.py        # Gemini AI integration
-│   ├── weather.py       # Live weather fetch
-│   ├── model.py         # ML model
-│   ├── config.py        # API keys
-│   └── requirements.txt
-├── frontend/
-│   └── src/
-│       └── App.jsx      # React frontend
-└── README.md
+**Backend**
+- `main.py` — FastAPI app & all endpoints
+- `gemini.py` — Gemini AI integration (advice + calendar)
+- `weather.py` — Live weather fetch (OpenWeatherMap)
+- `model.py` — ML model load & predict
+- `config.py` — API keys via .env
+- `requirements.txt` — Python dependencies
+
+**Frontend**
+- `src/App.jsx` — Full React frontend (dark theme)
+
+---
 
 ## 🚀 Setup & Run
 
-### Backend
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+- OpenWeatherMap API key (free)
+- Google Gemini API key (free)
+
+### Backend Setup
 
 ```bash
 cd backend
@@ -51,16 +63,22 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Create `.env` file in `backend/`:
+Create a `.env` file inside `backend/`:
 
-OPENWEATHER_API_KEY=your_key_here
-GEMINI_API_KEY=your_key_here
+```
+OPENWEATHER_API_KEY=your_openweather_key
+GEMINI_API_KEY=your_gemini_key
+```
+
+Run the backend:
 
 ```bash
 uvicorn main:app --reload
 ```
 
-### Frontend
+Backend runs at: `http://127.0.0.1:8000`
+
+### Frontend Setup
 
 ```bash
 cd frontend
@@ -68,24 +86,28 @@ npm install
 npm run dev
 ```
 
+Frontend runs at: `http://localhost:5173`
+
+---
+
 ## 🌐 API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/` | Health check |
 | POST | `/predict` | Yield prediction + AI advice |
-| GET | `/weather/{district}` | Live weather |
+| GET | `/weather/{district}` | Live weather data |
 | POST | `/crop-calendar` | AI crop calendar |
 
-## 📸 Screenshots
-
-> Coming soon
+---
 
 ## 👨‍💻 Author
 
 **Shivam Kumar**
 - GitHub: [@shivamkumar2309](https://github.com/shivamkumar2309)
 
+---
+
 ## 📄 License
 
-MIT License — see [LICENSE](LICENSE) for details.
+This project is licensed under the [MIT License](LICENSE).
